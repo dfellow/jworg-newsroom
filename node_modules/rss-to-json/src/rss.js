@@ -68,10 +68,15 @@ module.exports = {
       }
       channel.item.forEach(function (val) {
         var obj = {};
-        obj.title = !util.isNullOrUndefined(val.title) ? val.title[0] : '';
-        obj.description = !util.isNullOrUndefined(val.description) ? val.description[0] : '';
-        obj.url = obj.link = !util.isNullOrUndefined(val.link) ? val.link[0] : '';
+        obj.titleText = !util.isNullOrUndefined(val.title) ? val.title[0] : '';
+        obj.mainText = !util.isNullOrUndefined(val.description) ? val.description[0] : '';
+        obj.redirectionUrl = obj.link = !util.isNullOrUndefined(val.link) ? val.link[0] : '';
 
+		if (obj.mainText == '') {
+			var splitText = obj.titleText.split([' | ']);
+			obj.mainText = splitText[1];
+		}
+		
         if (val['itunes:subtitle']) {
           obj.itunes_subtitle = val['itunes:subtitle'][0];
         }
@@ -98,7 +103,8 @@ module.exports = {
         }
         if (val.pubDate) {
           //lets try basis js date parsing for now
-          obj.created = Date.parse(val.pubDate[0]);
+		  var dateCreated = Date.parse(val.pubDate[0])
+          obj.updateDate = (new Date(dateCreated)).toJSON();
         }
         if (val['media:content']) {
           obj.media = val.media || {};

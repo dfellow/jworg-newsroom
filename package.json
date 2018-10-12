@@ -4,6 +4,6 @@
   "version": "0.0.1",
   "dependencies": {
     "express": "^4.16.4",
-    "rss-to-json": ""
+    "rss-to-json": "git://github.com/dfellow/rss-to-json#master"
   }
 }
