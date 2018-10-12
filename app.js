@@ -1,7 +1,7 @@
 var Feed = require('rss-to-json');
 const express = require('express')
 const app = express()
-const port = 8080
+const port = 443
 
 app.get('/jworg-newsroom.json', (req, res) => 
 Feed.load('https://www.jw.org/en/news/jw/rss/NewsSubsectionRSSFeed/feed.xml', function(err, rss){
