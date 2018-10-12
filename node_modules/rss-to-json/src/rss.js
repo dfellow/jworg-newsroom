@@ -63,13 +63,13 @@ module.exports = {
 
     rss.image = rss.image && Array.isArray(rss.image) ? rss.image[0] : '';
 	*/
-    
+    var i = 1;
 	if (channel.item) {
       if (!util.isArray(channel.item)) {
         channel.item = [channel.item];
       }
       channel.item.forEach(function (val) {
-        var obj = {};
+		var obj = {};
         obj.uid = !util.isNullOrUndefined(val.guid) ? val.guid[0]["_"] : '';
 		obj.titleText = !util.isNullOrUndefined(val.title) ? val.title[0] : '';
         obj.mainText = !util.isNullOrUndefined(val.description) ? val.description[0] : '';
@@ -106,8 +106,9 @@ module.exports = {
         }
         if (val.pubDate) {
           //lets try basis js date parsing for now
-		  var dateCreated = Date.parse(val.pubDate[0])
-          obj.updateDate = (new Date(dateCreated)).toJSON();
+		  i=i+10000;
+		  var dateCreated = Date.parse(val.pubDate[0]);
+          obj.updateDate = (new Date(dateCreated + i)).toJSON();
         }
         if (val['media:content']) {
           obj.media = val.media || {};
