@@ -9,6 +9,6 @@ Feed.load('https://www.jw.org/en/news/jw/rss/NewsSubsectionRSSFeed/feed.xml', fu
     res.send(rss);
 }));
 
-//res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Hello World!'))
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
