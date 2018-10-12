@@ -2,8 +2,12 @@
   "name": "jworg-newsroom",
   "description": "read jw.org newsroom rss feed and output JSON feed for Alexa Skill",
   "version": "0.0.1",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
     "express": "^4.16.4",
-    "rss-to-json": "git://github.com/dfellow/rss-to-json#master"
+    "rss-to-json": "git://github.com/dfellow/rss-to-json#master",
+    "ssl-root-cas": "^1.2.5"
   }
 }
