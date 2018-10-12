@@ -1,0 +1,5 @@
+{
+  "name": "jworg-newsroom",
+  "description": "read jw.org newsroom rss feed and output JSON feed for Alexa Skill",
+  "version": "0.0.1"
+}
