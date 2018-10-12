@@ -70,7 +70,7 @@ module.exports = {
       }
       channel.item.forEach(function (val) {
         var obj = {};
-        obj.uid = !util.isNullOrUndefined(val.guid) ? val.guid[0]['_'] : '';
+        obj.uid = !util.isNullOrUndefined(val.guid) ? val.guid[0]["_"] : '';
 		obj.titleText = !util.isNullOrUndefined(val.title) ? val.title[0] : '';
         obj.mainText = !util.isNullOrUndefined(val.description) ? val.description[0] : '';
         obj.redirectionUrl = obj.link = !util.isNullOrUndefined(val.link) ? val.link[0] : '';
