@@ -37,10 +37,11 @@ module.exports = {
   },
   parser: function (json) {
     var channel = json.rss.channel;
-    var rss = { items: [] };
-    if (util.isArray(json.rss.channel))
+    var rss = [];
+    
+	if (util.isArray(json.rss.channel))
       channel = json.rss.channel[0];
-
+	/*
     if (channel.title) {
       rss.title = channel.title[0];
     }
@@ -61,8 +62,9 @@ module.exports = {
     }
 
     rss.image = rss.image && Array.isArray(rss.image) ? rss.image[0] : '';
-
-    if (channel.item) {
+	*/
+    
+	if (channel.item) {
       if (!util.isArray(channel.item)) {
         channel.item = [channel.item];
       }
@@ -127,7 +129,7 @@ module.exports = {
           });
 
         }
-        rss.items.push(obj);
+        rss.push(obj);
 
       });
 
