@@ -18,7 +18,6 @@ Feed.load('https://www.jw.org/en/whats-new/rss/WhatsNewWebArticles/feed.xml', fu
 	res.send(rss);
 }));
 
-
 app.get('/', (req, res) => res.send('Hello World!'))
 
 app.listen(port, () => console.log(`app listening on port ${port}!`))
